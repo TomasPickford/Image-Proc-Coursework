@@ -1,0 +1,66 @@
+All functions should be called from a Python environment (like IDLE). For best-looking parameters, see the report, not the example commands here.
+
+Problem 1 - Light Leak and Rainbow Light Leak
+
+Output Images:
+1. Image after darkening
+2. Final result
+
+Parameters:
+img_url - this string is the url of the input image.
+dark_coeff - a float between 0 and 1, which darkens the input image before blending. A higher number gives a darker image.
+blend_coeff - a float between 0 and 1, which determines the relative weighting of the input image and mask. A higher number makes the mask stronger and the image more faint.
+mode - a string with either the value "light" or "rainbow" to determine which mask to use.
+
+Example Command:
+problem1("face1.jpg", 0.1, 0.25, "rainbow")
+
+
+Problem 2 - Pencil / Charcoal Effect
+
+Output Images:
+1. Random noise
+2. Motion blur applied to the noise
+3. (for colour mode only) image after noise applied to one channel
+4. Final Image
+
+Parameters:
+img_url - this string is the url of the input image.
+blend_coeff - a float between 0 and 1 that determines how strongly the noise is applied to the image. Higher means stronger.
+mode - a string with either the value "greyscale" or "colour" to determine which channels to apply the mask(s) to.
+noise - the standard deviation of the Gaussian noise generator. Recommended values between 0 (for no noise) and 100 (very bold, messy strokes).
+brightness - how light to make the image. Values between 0 and 100 recommended for greyscale, but it must be greater than 30 for the colour to come out on colour mode
+
+Example Command:
+problem2("face1.jpg", 0.5, "monochrome", 40, 70)
+
+
+Problem 3 - Smoothing and Beautifying Filter
+
+Output Images:
+1. Image after smoothing
+2. Final result
+
+Parameters:
+img_url - this string is the url of the input image.
+spatial_blur - a positive integer (recommended values between 20 and 40, with the optimum being 30). A greater value means more blurring.
+colour_blur - a positive integer (recommended values above 10). A greater value means more blurring, but above 15, it is hard to tell the difference.
+
+Example Command:
+problem3("face1.jpg",30,10)
+
+
+Problem 4 - Face Swirl
+
+Output Images:
+1. Median Filter
+2. Final Result
+
+Parameters:
+img_url - this string is the url of the input image.
+swirl_angle - how tight the swirl is - a greater number gives more turns (recommended value: 0.25)
+swirl_radius - the circle that pixels are affected in. A smaller radius also makes the swirl more tight, by squeezing the turns into a smaller area. It is limited by the size of the image
+interpolation - strig with value "nn" for nearest neighbour or "bi" for bilinear - I HAVE ONLY IMPLEMENTED NN, so "bi" does not work
+
+Example Command:
+problem4("face2.jpg", 0.25, 200, "nn")
